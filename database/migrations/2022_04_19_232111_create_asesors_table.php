@@ -14,13 +14,14 @@ class CreateAsesorsTable extends Migration
     public function up()
     {
         Schema::create('asesors', function (Blueprint $table) {
-            $table->increments('codigo_asesor');
+            $table->bigIncrements('codigo_asesor');
             $table->string('name');
 
             $table->integer('clientes_asignados');
             $table->integer('total_pedidos');
-            
-            
+
+            $table->foreignId('id_cliente')->references('id_cliente')->on('clientes');
+
             $table->timestamps();
         });
     }
