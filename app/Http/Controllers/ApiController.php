@@ -16,7 +16,7 @@ class ApiController extends Controller
 
         $arrayData = [];
 
-        $data = ['success' => true, 'data' => $arrayData];
+        $data = ['success' => true, 'data' => $arrayData, 'otro' => false];
 
         return response()->json($data);
     }
