@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+
+    /**
+     * Get the Pedido associated with the Cliente.
+     */
+    public function pedidos() {
+        return $this->hasMany(Pedido::class , 'id_pedido', 'id_pedido');
+    }
 }

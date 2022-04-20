@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asesor;
+
+
 class ApiController extends Controller
 {
     /**
@@ -13,10 +16,29 @@ class ApiController extends Controller
      */
     public function getSalesAdviserInfo() {
 
+        $salesAdvisers = Asesor::with('clientes')->get();
 
         $arrayData = [];
 
-        $data = ['success' => true, 'data' => $arrayData, 'otro' => false];
+        foreach ($salesAdvisers as $salesAdviser) {
+
+            $clientes = [];
+            foreach ($salesAdviser->clientes as $cliente) {
+                $clientes[] = [
+                    "id_cliente" => $cliente->name,
+                ];
+            }
+
+            $arrayData[] = [
+                "codigo_asesor" => $salesAdviser->codigo_asesor,
+                "name" => $salesAdviser->name,
+                "clientes_asignados" => $salesAdviser->clientes_asignados,
+                "total_pedidos" => $salesAdviser->total_pedidos,
+                "clientes" => $clientes,
+            ];
+        }
+
+        $data = ['success' => true, 'data' => $arrayData];
 
         return response()->json($data);
     }

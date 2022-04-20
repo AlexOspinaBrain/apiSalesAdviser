@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAsesorsTable extends Migration
+class CreatePedidoProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,10 @@ class CreateAsesorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('asesors', function (Blueprint $table) {
-            $table->bigIncrements('codigo_asesor');
-            $table->string('name');
-
-            $table->integer('clientes_asignados');
-            $table->integer('total_pedidos');
-
+        Schema::create('pedido_productos', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_producto')->references('id_producto')->on('productos');
+            $table->foreignId('id_pedido')->references('id_pedido')->on('pedidos');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
@@ -33,6 +30,6 @@ class CreateAsesorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asesors');
+        Schema::dropIfExists('pedido_productos');
     }
 }
