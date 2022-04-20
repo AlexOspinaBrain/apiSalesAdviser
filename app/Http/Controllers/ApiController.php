@@ -9,8 +9,8 @@ class ApiController extends Controller
 {
     /**
      * Fetch sales adviser Info
-     * Return an object JSON with 'success' and 'data' keys 
-     * where 'data' contanis the expected array 
+     * Return an object JSON with 'data' as key 
+     * where 'data' contanis the expected json 
      *
      * @return object $data json
      */
@@ -38,7 +38,7 @@ class ApiController extends Controller
             ];
         }
 
-        $data = ['success' => true, 'data' => $arrayData];
+        $data = ['data' => $arrayData];
 
         return response()->json($data);
     }
