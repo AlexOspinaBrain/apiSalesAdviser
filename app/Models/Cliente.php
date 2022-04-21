@@ -13,6 +13,6 @@ class Cliente extends Model
      * Get the Pedido associated with the Cliente.
      */
     public function pedidos() {
-        return $this->hasMany(Pedido::class , 'id_pedido', 'id_pedido');
+        return $this->hasMany(Pedido::class , 'id_cliente', 'id_cliente');
     }
 }

@@ -13,6 +13,6 @@ class Pedido extends Model
      * Get the producto associated with Pedidos.
      */
     public function productos() {
-        return $this->hasMany(PedidoProducto::class, 'id_pedido', 'id_pedido');
+        return $this->belongsToMany(Producto::class)->using(PedidoProducto::class);
     }
 }
