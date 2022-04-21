@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<p>Api para obtener un JSON con la información de los asesores</p>
+<h1>Api para obtener un JSON con la información de los asesores</h1>
 <p>Es una API desarrollada en Laravel.</p>
 <h2>Instalación</h2>
 
