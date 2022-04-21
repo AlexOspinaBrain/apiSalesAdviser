@@ -21,7 +21,7 @@
     <li>php artisan migrate</li>
 </ul>
 
-<p>Listo, puede llenar la base de datos y consumir el enpoint https://name_project/public/api/info</p>
+<p>Listo, puede llenar la base de datos y consumir el endpoint, este sería un ejemplo https://name_project/public/api/info >> esto depende de su configuración de apache o nginx</p>
 <br>
 <br>
 <br>
